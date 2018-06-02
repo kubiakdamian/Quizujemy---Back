@@ -18,9 +18,15 @@ public class ArticleController {
     ArticleRepository articleRepository;
 
     @GetMapping("/articles")
-    public Page<Article> getAllArticles(Pageable pageable){
+    public @ResponseBody Iterable<Article> getAllArticles(){
+        return articleRepository.findAll();
+    }
+
+    @GetMapping(path = "/articles/paginated")
+    public @ResponseBody Page<Article> getAllCuriosities(Pageable pageable){
         return articleRepository.findAll(pageable);
     }
+
 
     @GetMapping("/articles/{idarticle}")
     public Optional<Article> getArticleById(@PathVariable (value = "idarticle") Long idarticle){
