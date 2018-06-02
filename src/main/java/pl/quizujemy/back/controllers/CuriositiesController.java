@@ -1,4 +1,4 @@
-package pl.quizujemy.back;
+package pl.quizujemy.back.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -6,10 +6,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import pl.quizujemy.back.models.Curiosities;
+import pl.quizujemy.back.repositories.CuriositiesRepository;
 
 @Controller
 @RequestMapping(path = "/api")
-public class MainController {
+public class CuriositiesController {
 
     @Autowired
     private CuriositiesRepository curiositiesRepository;

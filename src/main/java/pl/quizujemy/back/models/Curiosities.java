@@ -1,4 +1,4 @@
-package pl.quizujemy.back;
+package pl.quizujemy.back.models;
 
 import lombok.Data;
 
@@ -12,7 +12,7 @@ import javax.persistence.Id;
 public class Curiosities {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer idcuriosities;
+    private Long idcuriosities;
     private String content;
 
 }
