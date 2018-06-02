@@ -10,6 +10,7 @@ import pl.quizujemy.back.models.Article;
 import pl.quizujemy.back.repositories.ArticleRepository;
 
 import javax.validation.Valid;
+import java.util.Optional;
 
 @RestController
 public class ArticleController {
@@ -19,6 +20,11 @@ public class ArticleController {
     @GetMapping("/articles")
     public Page<Article> getAllArticles(Pageable pageable){
         return articleRepository.findAll(pageable);
+    }
+
+    @GetMapping("/articles/{idarticle}")
+    public Optional<Article> getArticleById(@PathVariable (value = "idarticle") Long idarticle){
+        return articleRepository.findById(idarticle);
     }
 
     @PostMapping("/articles")
