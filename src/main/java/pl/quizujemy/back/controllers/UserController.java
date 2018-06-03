@@ -1,17 +1,66 @@
 package pl.quizujemy.back.controllers;
 
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.context.request.WebRequest;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCrypt;
+import org.springframework.web.bind.annotation.*;
+import pl.quizujemy.back.exceptions.ResourceNotFoundException;
 import pl.quizujemy.back.models.User;
+import pl.quizujemy.back.repositories.UserRepository;
 
+import javax.validation.Valid;
+
+@RestController
 public class UserController {
-    @RequestMapping(value = "/user/registration", method = RequestMethod.GET)
-    public String showRegistrationForm(WebRequest request, Model model) {
-        User user = new User();
-        model.addAttribute("user", user);
+    @Autowired
+    private UserRepository userRepository;
 
-        return "registration";
+    @PostMapping("/register")
+    public String registerNewUserAccount(@Valid @RequestBody User user) {
+        if (emailExist(user.getEmail())) {
+            throw new ResourceNotFoundException("There is an account with that email address: " + user.getEmail());
+        }
+        final User newUser = new User();
+
+        newUser.setUsername(user.getUsername());
+        newUser.setEmail(user.getEmail());
+        String hashed = BCrypt.hashpw(user.getPassword(), BCrypt.gensalt());
+        newUser.setPassword(hashed);
+        newUser.setRole(user.getRole());
+        userRepository.save(newUser);
+
+        return "Success";
+    }
+
+    @PostMapping("/login")
+    public User login(@Valid @RequestBody User user) {
+        String response;
+        if (!emailExist(user.getEmail())) {
+            throw new ResourceNotFoundException("No such email");
+        }else{
+            System.out.println(user.getPassword());
+            System.out.println(getUserByEmail(user.getEmail()).getPassword());
+            if (BCrypt.checkpw(user.getPassword(), getUserByEmail(user.getEmail()).getPassword())){
+                response = "It matches";
+            }else{
+                throw new ResourceNotFoundException("Wrong password");
+            }
+        }
+
+        return getUserByEmail(user.getEmail());
+    }
+
+
+    @GetMapping("/users")
+    public @ResponseBody
+    Iterable<User> getAllUsers(){
+        return userRepository.findAll();
+    }
+
+    private User getUserByEmail(final String email){
+        return userRepository.findByEmail(email);
+    }
+
+    private boolean emailExist(final String email) {
+        return userRepository.findByEmail(email) != null;
     }
 }
