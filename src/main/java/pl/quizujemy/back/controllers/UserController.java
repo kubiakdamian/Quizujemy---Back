@@ -15,6 +15,7 @@ public class UserController {
     private UserRepository userRepository;
 
     @PostMapping("/register")
+    @CrossOrigin(origins = "*")
     public String registerNewUserAccount(@Valid @RequestBody User user) {
         if (emailExist(user.getEmail())) {
             throw new ResourceNotFoundException("There is an account with that email address: " + user.getEmail());
@@ -32,6 +33,7 @@ public class UserController {
     }
 
     @PostMapping("/login")
+    @CrossOrigin(origins = "*")
     public User login(@Valid @RequestBody User user) {
         String response;
         if (!emailExist(user.getEmail())) {
