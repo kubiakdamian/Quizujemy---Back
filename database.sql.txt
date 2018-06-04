@@ -1,0 +1,445 @@
+﻿-- phpMyAdmin SQL Dump
+-- version 4.8.0.1
+-- https://www.phpmyadmin.net/
+--
+-- Host: 127.0.0.1
+-- Czas generowania: 04 Cze 2018, 03:58
+-- Wersja serwera: 10.1.32-MariaDB
+-- Wersja PHP: 7.2.5
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Baza danych: `mydb`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Struktura tabeli dla tabeli `answers`
+--
+
+CREATE TABLE `answers` (
+  `idanswers` int(11) NOT NULL,
+  `first` varchar(100) DEFAULT NULL,
+  `second` varchar(100) DEFAULT NULL,
+  `third` varchar(100) DEFAULT NULL,
+  `fourth` varchar(100) DEFAULT NULL,
+  `correct` varchar(100) DEFAULT NULL,
+  `question_idquestion` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Zrzut danych tabeli `answers`
+--
+
+INSERT INTO `answers` (`idanswers`, `first`, `second`, `third`, `fourth`, `correct`, `question_idquestion`) VALUES
+(1, '1914', '1918', '1939', '1945', '1918', 2),
+(2, '95', '100', '105', '116', '116', 3),
+(3, 'Gabriel Narutowicz', 'Lech Wałęsa', 'Aleksander Kwaśniewski', 'Edward Gierek', 'Gabriel Narutowicz', 4),
+(4, '798', '800', '804', '807', '800', 5),
+(5, '1487', '1498', '1504', '1507', '1507', 6),
+(6, 'Władysława Łokietka', 'Ludwika Węgierskiego', 'Bolesława Chrobrego', 'Zygmunta III Wazy', 'Władysława Łokietka', 7),
+(7, 'XIV', 'XV', 'XVI', 'XVII', 'XVI', 8),
+(8, 'Władysław I Łokietek', 'Władysław II Jagiełło', 'Władysław III Warneńczyk', 'Jan I Olbracht', 'Władysław II Jagiełło', 9),
+(9, '1821', '1848', '1874', '1893', '1848', 10),
+(10, '1330', '1352', '1370', '1387', '1370', 11),
+(11, 'Szwajcaria', 'Holandia', 'Luksemburg', 'Lichtenstein', 'Lichtenstein', 12),
+(12, 'Warszawa', 'Wisła', 'Grudziądz', 'Gniezno', 'Gniezno', 13),
+(13, 'Polską i Białorusią', 'Polską i Czechami', 'Polską i Słowacją', 'Polską i Ukrainą', 'Polską i Ukrainą', 14),
+(14, 'Australii', 'Nowej Zelandii', 'Azji', 'Afryce', 'Australii', 15),
+(15, 'Szlezwik Północny', 'Turyngia', 'Antwerpia', 'Langwedocja', 'Turyngia', 16),
+(16, 'bagienna', 'rędzina', 'czarnoziem', 'mada', 'bagienna', 17),
+(17, 'łupek, piaskowiec', 'łupek, marmur', 'glina, żwir', 'piaskowiec, glina', 'glina, żwir', 18),
+(18, 'Danii', 'Norwegii', 'Finlandii', 'Szwecji', 'Szwecji', 19),
+(19, 'Severn', 'Tamiza', 'Trent', 'Dan', 'Severn', 20),
+(20, 'Czarnogórą', 'Albanią', 'Macedonią', 'Kosowem', 'Czarnogórą', 21);
+
+-- --------------------------------------------------------
+
+--
+-- Struktura tabeli dla tabeli `anteroom`
+--
+
+CREATE TABLE `anteroom` (
+  `idanteroom` int(11) NOT NULL,
+  `content` varchar(500) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Struktura tabeli dla tabeli `article`
+--
+
+CREATE TABLE `article` (
+  `idarticle` int(11) NOT NULL,
+  `title` varchar(100) NOT NULL,
+  `autor` varchar(45) DEFAULT NULL,
+  `image` varchar(200) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Zrzut danych tabeli `article`
+--
+
+INSERT INTO `article` (`idarticle`, `title`, `autor`, `image`) VALUES
+(1, 'Wirtualna rzeczywistość pomaga leczyć wzrok', 'John Kowalski', 'https://cdn.pixabay.com/photo/2016/02/19/11/19/computer-1209641_960_720.jpg'),
+(2, 'Jak bardzo różnimy się od kota?', 'Anonim', 'https://cdn.pixabay.com/photo/2017/09/23/20/30/lucky-cat-2780044_960_720.jpg'),
+(3, 'Dlaczego niektórzy ludzie popełniają przestępstwa, a inni nie?', 'Anonim', 'https://cdn.pixabay.com/photo/2014/12/02/11/21/prison-553836_960_720.jpg'),
+(4, 'Ciężarne delfiny „śpiewają” swoim młodym, nadając im imiona', 'Anonim', 'https://cdn.pixabay.com/photo/2013/02/10/00/06/dolphin-79848_960_720.jpg'),
+(5, 'Takie okazy są niezwykle rzadkie! W połowie on, w połowie ona', 'National Geographic', 'https://cdn.pixabay.com/photo/2018/04/19/13/55/butterfly-3333182_960_720.jpg');
+
+-- --------------------------------------------------------
+
+--
+-- Struktura tabeli dla tabeli `curiosities`
+--
+
+CREATE TABLE `curiosities` (
+  `idcuriosities` int(11) NOT NULL,
+  `content` varchar(500) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Zrzut danych tabeli `curiosities`
+--
+
+INSERT INTO `curiosities` (`idcuriosities`, `content`) VALUES
+(1, 'Powierzchnia Polski wynosi 312 679 km²'),
+(2, 'We wsi Piątek, 33 km od Łodzi znajduje się dokładny środek Polski.'),
+(3, 'Pustynie Błędowska jest jedyną naturalną pustynią w Europie'),
+(4, 'Góry Świętokrzyskie są najstarszymi górami w Europie.'),
+(5, 'Ptaki słyszą, jak nadciąga tornado - i zawczasu się ewakuują, a kiedy wiatr ucichnie, wracają do gniazd.'),
+(6, 'Colt miał niewiele ponad 20 lat, gdy założył fabrykę broni, której produkcja zapewniła mu w przyszłości międzynarodowy rozgłos i bogactwo.'),
+(7, 'W głębokich warstwach skorupy ziemskiej może być więcej wody niż we wszystkich oceanach. Naukowcy z University of Liverpool wykazali, że głębokomorskie strefy uskoków mogą transportować znaczne ilości wody z oceanów do górnego płaszcza Ziemi.'),
+(8, 'Wystawienie skóry na działanie promieniowania ultrafioletowego powoduje obniżenie ciśnienia krwi, a przez to wpływa na zmniejszenie ryzyka wystąpienia ataku serca i wylewu.'),
+(9, 'Międzynarodowa Stacja Kosmiczna (ISS) będzie działać co najmniej cztery lata dłużej, niż zakładano, czyli do roku 2024. Stacja może posłużyć jako baza podczas przygotowań do przyszłej, załogowej misji na Marsa - czytamy na stronie NASA.'),
+(10, 'Umiarkowane spożycie alkoholu pobudza układ immunologiczny i pomaga w zwalczaniu infekcji – wynika z badań amerykańskich naukowców opublikowanych w czasopiśmie „Vaccine”.'),
+(11, 'Zmienianie ubarwienia nie wygląda może tak przerażająco jak np. obnażanie zębów, jednak samce kameleonów uciekają się do tego sposobu, aby odstraszyć rywali - wynika z nowego badania opisanego w magazynie \"Biology Letters\".'),
+(12, 'Grzyb Morchella crassipes zachowuje się jak Baba Jaga z baśni o Jasiu i Małgosi. Najpierw karmi bakterie, a potem je zjada'),
+(13, 'Mniszek lekarski, jak sama nazwa wskazuje, służy poprawie zdrowia. Okazuje się jednak, że nie tylko. Jest także znakomitym i – co najważniejsze – przyjaznym środowisku surowcem do produkcji... gumy na opony.'),
+(14, 'Radom leży w województwie mazowieckim. Okazuje się, że to niewielkie polskie miasto ma powierzchnię większą niż stolica Francji, mimo że na jego terenie mieszka 10 razy mniej ludzi. Powierzchnia Radomia to 111,8 km², natomiast Paryża 105,4 km².'),
+(15, 'Okazuje się, że wyprodukowanie jednego grosza wcale nie jest warte grosz. Szacuje się, że na wybicie jednej monety potrzeba od pięciu do ośmiu groszy.'),
+(16, 'Według niektórych naukowców półwysep Helski może zniknąć. W ciągu od kilkudziesięciu do kilkuset lat połączy się z resztą kraju.'),
+(17, 'Argentyna to jedyny kraj na świecie, gdzie co roku, 8 czerwca obchodzi się Dzień Polaka. \"Día del Colono Polaco\", czyli Dzień Polskiego Osadnika został ustanowiony w 1995 roku. To święto narodowe, które upamiętnia przybycie pierwszych Polaków do Argentyny. Wydarzenie to datuje się na początek czerwca 1897 roku.'),
+(18, 'Okazuje się, że typowy wiek w jakim Polacy wstępują w związki małżeńskie to 24 lata dla kobiet i 26 lat dla mężczyzn. To o 7 lat wcześniej niż na przykład w Szwecji. Jako jedni z najmłodszych decydujemy się na legalizację związków.'),
+(19, 'Według rankingu, jaki opracowała Europejska Agencja Ochrony Środowiska, 6 na 10 najbardziej zanieczyszczonych miast znajduje się w Polsce. W \"brudnej\" dziesiątce znalazły się: Kraków, Nowy Sącz, Gliwice, Zabrze, Sosnowiec, Katowice.'),
+(20, 'Największe PKB per capita (według parytetu siły nabywczej) wśród krajów afrykańskich ma Gwinea Równikowa - państwo ponad 10 razy mniejsze od Polski, leżące w części na północnej i na południowej półkuli.'),
+(21, 'Termin ,,Europa’’ pochodzi najprawdopodobniej z języka fenickiego i oznacza ,,Zachód’’ Interpretacja tej nazwy wiąże się z mitem o fenickiej księżniczce Europie, którą najważniejszy z greckich bogów, Zeus, pod postacią białego byka uprowadził na Kretę.'),
+(22, 'Przyjmuje się, że powierzchnia Europy wynosi około 10,5 – 11 milionów km. kw., stanowi zatem niecałe 15 % powierzchni wszystkich lądów.'),
+(23, 'Najnowsza ciekawostka');
+
+-- --------------------------------------------------------
+
+--
+-- Struktura tabeli dla tabeli `paragraph`
+--
+
+CREATE TABLE `paragraph` (
+  `idparagraph` int(11) NOT NULL,
+  `content` varchar(1000) DEFAULT NULL,
+  `article_idarticle` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Zrzut danych tabeli `paragraph`
+--
+
+INSERT INTO `paragraph` (`idparagraph`, `content`, `article_idarticle`) VALUES
+(1, 'Gogle do wirtualnej rzeczywistości mogą być wykorzystywane do korygowania wad wzroku oraz zaburzeń takich, jak zez. Start-upy są na etapie konstruowania gier i filmów służących do leczenia, ale na gotowe produkty trzeba jeszcze poczekać. Światowa Organizacja Zdrowia szacuje, że ponad 3 proc. populacji świata cierpi na zaburzenia widzenia. Większości z nich można zapobiec lub wyleczyć. Wirtualna rzeczywistość może pomóc także w przypadku depresji, zespołu stresu pourazowego, czy chronicznego bólu.', 1),
+(2, 'Leczenie wad wzroku za pomocą gogli VR opiera się na zasadzie podobnej do tej, z jaką mamy do czynienia w przypadku leczenia farmakologicznego. Tradycyjna terapia polega na podaniu do zdrowego oka środka, który czasowo pogarsza widzenie w nim, i tym samym na pogorszeniu do pracy oka niesprawnego. W okularach do wirtualnej rzeczywistości podobny efekt osiąga się modulując ostrość widzenia na jednym z oczu. Ogólnie rzecz biorąc terapia polega na kontrolowanym \"oszukiwaniu\" mózgu, który steruje pracą narządów.', 1),
+(3, 'Jednym ze start-upów oferujących leczenie okulistyczne za pomocą gogli do wirtualnej rzeczywistości jest polski RemmedVR. Terapia z wykorzystaniem gogli VR może, według polskiej firmy, pomóc 4-krotnie większej liczbie pacjentów w 2-krotnie krótszym czasie. Nadzorowana przez lekarza w sposób zdalny terapia, polega na wykonywaniu za pomocą gogli do wirtualnej rzeczywistości różnego rodzaju ćwiczeń, w zależności od rodzaju choroby. Obecnie, polski start-up skupia się na leczeniu leniwego oka i zeza.', 1),
+(4, 'Żyjemy z kotem pod jednym dachem, jemy z tej samej lodówki, a jednak kot widzi inny niż my świat. Jak bardzo różnimy się w jego odbiorze i dlaczego kot nie może przestać być drapieżnikiem?', 2),
+(5, 'Koty patrzą na świat, ale widzą go mniej wyraźnie i szczegółowo niż my. Trudno stwierdzić na pewno, jakie kolory widzą, dość powiedzieć, że ten sam świat, który jawi się w naszych oczach u kota jest zamglony, lekko bezbarwny, niewyraźny. Nie opiera się na szczegółach życia, tylko na jego ruchu, który jest dlań najważniejszym motywem życia. Kot słabo widzi, to co się nie porusza. Doskonale za to widzi w nocy, która jest dlań taka sama jak dla nas dzień, jeśli tylko do jego oczu dopływa minimalne światło. Przesadą byłoby stwierdzenie, że kot widzi w całkowitych ciemnościach. Owszem, może się w nich poruszać, ale to dzięki innym zmysłom. Widzenie w nocy przysługuje kotu tylko wtedy, jeżeli do jego oka dociera minimalne światło. To światło daje oku widzenie świata i dlatego kot nie może widzieć, jeżeli do jego wzroku nie dociera jakieś pasmo jasności. Tyle tylko, że kotu wystarczy wiązka światła do bycia nocnym mistykiem, a my przy tym samym świetle pozostajemy ślepi. Przez długi czas nauk', 2),
+(6, 'Warto także wspomnieć o tym, że kot całkowicie nie odróżnia koloru czerwonego. Dlatego, jeżeli myślimy, że reaguje żywiołowo na czerwoną piłeczkę, którą mu podajemy, to wiedzmy, że nie dzieje się tak dlatego, że jest czerwona, bo w kocim odbiorze jest co najwyżej szara. Świat kota jest właśnie raczej szary i przymglony. A jednak mimo tego, że jest on niewyraźny i bez szczegółów, to musimy mieć na uwadze, że jest pełen ruchu i dźwięków, słyszalnych na poziomie 70 000 Hz. Dla porównania człowiek słyszy dźwięki o częstotliwości 20 000 Hz. To, co więc dla nas niesłyszalne, dla kota jest takie, jakby uderzało go z bliska. To tak, jakby kot partycypował w jakieś rzeczywistości, która dla nas jest odległym majakiem, a niekiedy, z racji swojego utajenia, jest to rzeczywistość jakby „duchów”. Nieraz wydaje nam się, że kot widzi coś, czego… nie ma. Choć oczywiście obiektywnie to jest, to jednak nasza percepcja nie jest w stanie tego odebrać, a jeżeli tak, to tylko w niewielkim stopniu. Istotnym ', 2),
+(7, 'Inteligencja delfinów nie przestaje nas zadziwiać. Najnowsze badania zdają się tylko potwierdzać to, jak wysoko rozwinięte są te zwierzęta. Według naukowców ciężarne delfiny \"śpiewają\" swoim nienarodzonym młodym, a także kiedy przyjdą już na świat. Według badaczy w ten sposób mogą nadawać imiona potomstwu.', 4),
+(8, 'Do komunikowania się między sobą delfiny używają specyficznych gwizdów. Zauważono, że ciężarne delfiny używają pewnego rodzaju odgłosów, kierując je do swojego potomstwa w okresie od kilku miesięcy przed porodem do dwóch tygodni po nim, zupełnie jakby \"śpiewały\" swoim nienarodzonym młodym.', 4),
+(9, 'Tego typu badania były prowadzone już wcześniej, teraz jednak naukowcy skupili się na rodzajach gwizdów i na tym, czy po porodzie ulegają zmianie. Niektóre z wyników opracowania przedstawiła Audra Ames z laboratorium ssaków morskich (ang. Marine Mammal Behavior and Cognition Lab) na Uniwersytecie Południowego Missisipi na corocznej konferencji Amerykańskiego Towarzystwa Psychologicznego.', 4),
+(10, 'Naukowcy prowadzili badania w parku rozrywki Six Flags Discovery Kingdom w Vallejo w Kalifornii, gdzie znajdują się delfiny. Badacze nagrali 80 godzin odgłosów wydawanych przez te zwierzęta, na dwa miesiące przed przyjściem młodych na świat i dwa tygodnie po porodzie. W parku mieszka grupa delfinów, w tym 9-letnia samica, która była w ciąży z malcem o imieniu Mira. Naukowcy odkryli, że samica będąc w ciąży zaczęła wydawać nowy gwizd, który był słyszany coraz częściej w okolicach porodu, a gdy młode przyszło na świat, był już używany coraz rzadziej. Badacze zauważyli także, że pozostałe delfiny mieszkające z ciężarną samicą, były w tym czasie znacznie ciszej niż zazwyczaj. Ich zdaniem mogły się tak zachowywać, by cielę nie pomyliło ich głosów z głosem matki.', 4),
+(11, 'Dodatkowo, gdy matka Miry coraz rzadziej wydawała charakterystyczne dla okresu ciąży gwizdy, inne delfiny w grupie zaczęły odzywać się częściej. Jednak odgłos, jaki wydawała matka do swojego nienarodzonego dziecka był wyraźnie inny od tych, które wydawały pozostałe zwierzęta. Być może w ten sposób matki nadają swoim młodym \"imiona\".\r\n\r\nDelfiny są bardzo mądrymi ssakami. Pływanie synchroniczne nie jest dla nich żadnym problemem. W ogrodzie zoologicznym Attica w Grecji można oglądać pokazy delfinów:', 4),
+(12, 'Podobnie, nie ma prostej odpowiedzi na pytanie, dlaczego niektórzy ludzie kończy się w więzieniach i zakładach karnych, podczas gdy inne nie.\r\nAle w tym samym czasie, populacja ludzi, którzy kończą w więzieniu łaczą pewne cechy. A naukowcy chcą teraz znaleźć jedną wspólną cechę  do określonych zachowań.\r\nAntyspołeczne zaburzenie osobowości (ASPD – wiki) jest szalenie popularna  w więzieniach. Weźmy  100 osób  na ulicy, a szanse są tylko jeden do trzech  że będzie miała ASPD. Weźmy 100 osób z więzienia  i można się spodziewać że od 40 do 70 z nich będą miały zaburzenia.\r\nTo istotne, ponieważ ASPD została połączona z agresją, drażliwość, brak poszanowania dla reguł, lekceważenie innych ludzi i nieuczciwością .\r\nMiędzynarodowy zespół fiński, amerykańskich, brytyjskich i szwedzkich naukowców przeanalizowała dane z fińskich danych  przestępstw – bazy testów psychologicznych i materiału genetycznego od 794 fińskich więźniów , pomiędzy 2010-2011.', 3),
+(13, 'Spośród 794 więźniów, 568 miało ASPD. Wyniki badań są interesujące same w sobie –  zrozumienie ASPD od strony genetyki będą  odgrywać ważną rolę.\r\nTakże naukowcy mają wątpliwości czy ich badania będą używane w odpowiedni sposób .\r\n„Wyniki tego badania nie mogą być realizowane w celach prognostycznych lub w sądach, aby mieć jakąkolwiek wagę prawną”', 3),
+(14, 'W przeszłości, odwołanie do  genów i przemocy były – w słowach naukowców – „nadużywane” przez prokuratorów jako dowód, że oskarżeni są agresywni . Badanie pokazuję że jest związek między genami a przemocą w życiu .\r\nSą to ważne powody które dają naukowcom  wiedzę odnośnie  zaburzeń takich jak ASPD, ale też realne niebezpieczeństwo że  geny ludzkie mogą być  wykorzystywane jako dowód, że są przestępcami.', 3),
+(15, 'Dla nas płeć to jasna sprawa - szczególnie, że u ludzi dymorfizm płciowy jest bardzo silny. Ale u innych zwierząt sprawa wygląda o wiele bardziej skomplikowanie.', 5),
+(16, 'Różnica w wyglądzie między samcem i samicą danego gatunku nazywana jest dymorfizmem płciowym. Określenie zakłada, że obie płcie przecina wyraźna granica. Ale w królestwie zwierząt wiele stworzeń sytuuje się po obu jej stronach. Świat przyrody pełen jest bowiem obojnaków – zwierząt, które z zewnątrz wyglądają jak samce lub samice, ale mają organy rozrodcze obu płci. Ich rzadziej występujący kuzyni to gynandromorfy – zwierzęta z mozaiką męskich i żeńskich cech – np. o rozmiarze i ubarwieniu jednej, a z genitaliami drugiej płci.', 5),
+(17, 'Rzadko jednak spotyka się dwustronnego gynandromorfa (powyżej) – zwierzę, które w jednej połowie ma męskie, a w drugiej żeńskie cechy płciowe. Przypadki tego zjawiska stwierdzono u ptaków, skorupiaków oraz motyli. Biolog ewolucyjny Josh Jahner wyjaśnia, „co zdaniem większości naukowców musi nastąpić”, żeby powstały takie przypadki: otóż chromosomy płciowe motyli są przeciwieństwem ludzkich – samce mają dwa podobne (ZZ), a samice różne (ZW). Jajo samicy czasami ma dwa zarodki – Z i W. Gdy oba zostają zapłodnione przez spermę\r\nsamca, powstały płód jest po połowie męski i żeński.', 5),
+(18, 'Jak rzadkie są takie okazy? W badaniach z lat 80. XX w. grupa naukowców wyhodowała prawie 30 tys. motyli, wśród których znalazło się jedynie pięć gynandromorfów dwustronnych.', 5),
+(19, 'Jahner twierdzi, że gynandromorfy z jego laboratorium próbowały składać jaja, ale bezskutecznie – najpewniej ze względu na nieprawidłowość w ich układzie płciowym. A zatem choć ta odmiana odznacza się niezwykłymi połączeniami kolorów, tego piękna motyle najwyraźniej nie są w stanie przekazać dalej.', 5);
+
+-- --------------------------------------------------------
+
+--
+-- Struktura tabeli dla tabeli `question`
+--
+
+CREATE TABLE `question` (
+  `idquestion` int(11) NOT NULL,
+  `question` varchar(300) DEFAULT NULL,
+  `quiz_idquiz` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Zrzut danych tabeli `question`
+--
+
+INSERT INTO `question` (`idquestion`, `question`, `quiz_idquiz`) VALUES
+(2, 'W którym roku zakończyła się I Wojna Światowa?', 1),
+(3, 'Ile trwała wojna stuletnia?', 1),
+(4, 'Jak nazywał się pierwszy Prezydent Polski?', 1),
+(5, 'W którym roku miała miejsce koronacja Karola Wielkiego na cesarza?', 1),
+(6, 'W którym roku Zygmunt Stary został królem Polski?', 1),
+(7, 'Synem jakiego Polskiego króla był Kazimierz Wielki?', 1),
+(8, 'Który wiek określa się mianem złotego wieku Polski?', 1),
+(9, 'Kto był dowódcą wojsk Polskich podczas Bitwy pod Grunwaldem?', 1),
+(10, 'W którym woku odbyło się powstanie węgierskie?', 1),
+(11, 'W jakich latach miała miejsce pierwsza unia polsko-węgierska?', 1),
+(12, 'Który kraj nie sąsiaduje z Niemcami?', 4),
+(13, 'Przez którą z poniższych miejscowości nie płynie rzeka Wisła?', 4),
+(14, 'Rzeka San na długości 55 km stanowi granicę między:', 4),
+(15, 'Wielkie Góry Wododziałowe to potężny łańcuch górski, leżący w:', 4),
+(16, 'Który z tych regionów leży w Niemczech?', 4),
+(17, 'Zaznacz typ gleby, która może wykształcić się w wyniku zarastania jezior', 4),
+(18, 'Występowanie których skał na obszarze Polski jest związane z działalnością lądolodu i wód lodowcowych?', 4),
+(19, 'Rzeka Dalälven jest najdłuższą rzeką...', 4),
+(20, 'Jaka jest najdłuższa rzeka Wielkiej Brytanii?', 4),
+(21, 'Chorwacja sąsiaduje z...', 4);
+
+-- --------------------------------------------------------
+
+--
+-- Struktura tabeli dla tabeli `quiz`
+--
+
+CREATE TABLE `quiz` (
+  `idquiz` int(11) NOT NULL,
+  `category` varchar(40) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Zrzut danych tabeli `quiz`
+--
+
+INSERT INTO `quiz` (`idquiz`, `category`) VALUES
+(1, 'history'),
+(2, 'computers'),
+(3, 'chemistry'),
+(4, 'geography'),
+(5, 'sport'),
+(6, 'animals');
+
+-- --------------------------------------------------------
+
+--
+-- Struktura tabeli dla tabeli `statistics`
+--
+
+CREATE TABLE `statistics` (
+  `idstatistics` int(11) NOT NULL,
+  `answered_questions` int(11) DEFAULT NULL,
+  `correct_answers` int(11) DEFAULT NULL,
+  `user_iduser` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Zrzut danych tabeli `statistics`
+--
+
+INSERT INTO `statistics` (`idstatistics`, `answered_questions`, `correct_answers`, `user_iduser`) VALUES
+(1, 10, 3, 3),
+(2, 0, 0, 1),
+(3, 0, 0, 4),
+(4, 0, 0, 5),
+(5, 0, 0, 6),
+(6, 0, 0, 7),
+(7, 10, 3, 8);
+
+-- --------------------------------------------------------
+
+--
+-- Struktura tabeli dla tabeli `user`
+--
+
+CREATE TABLE `user` (
+  `iduser` int(11) NOT NULL,
+  `username` varchar(25) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `password` varchar(200) NOT NULL,
+  `role` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Zrzut danych tabeli `user`
+--
+
+INSERT INTO `user` (`iduser`, `username`, `email`, `password`, `role`) VALUES
+(1, 'test', 'test@gmail.com', '$2a$10$ArpSIjy0JDg.F1SGhT8ilOZBIOjH8.cf.fV5W70cNvSffInEcNFk2', 2),
+(2, 'damian', 'damian@gmail.com', '$2a$10$naIM68dx1s/492AVRqgtNO98XscIm5jGVoDC/JB//ImjEHdvUw21.', 2),
+(3, 'nowy', 'nowy@gmail.com', '$2a$10$L.cGwrCXznTEuu2HGRQkAex34t.ZzL99UL74ZFVllYge4vqiTiNrO', 2),
+(4, 'konto', 'konto@gmail.com', '$2a$10$HmZS5MYaatQN9hhwPbmsMugSElJti6rzEgSXFrJW/Xj3i7rEoESpK', 2),
+(5, 'nowe', 'nowe@gmail.com', '$2a$10$CXRYbViDD9HekAXTO0uWqe0ZH/HcfNw1tORPg9W9sowCaHymSKGm2', 2),
+(6, 'abc', 'abc@gmail.com', '$2a$10$8yzWVNmG.MfIRA3SwVrx3u.Qauk83Xsns7ZBsylnGCx427sErmmOG', 2),
+(7, 'admin', 'admin@gmail.com', '$2a$10$xMqbW8yNdCZyIOSKDDLbRekfOgOqev4k4lw7EKAmKmmGsY.Y398jy', 1),
+(8, 'test2', 'test2@gmail.com', '$2a$10$gYwezTiA62TkZhfZLzxgLOoxh088MWKV7HfMf9pwaGBodDYVpcStW', 2);
+
+--
+-- Indeksy dla zrzutów tabel
+--
+
+--
+-- Indeksy dla tabeli `answers`
+--
+ALTER TABLE `answers`
+  ADD PRIMARY KEY (`idanswers`,`question_idquestion`),
+  ADD KEY `fk_answers_question1_idx` (`question_idquestion`);
+
+--
+-- Indeksy dla tabeli `anteroom`
+--
+ALTER TABLE `anteroom`
+  ADD PRIMARY KEY (`idanteroom`);
+
+--
+-- Indeksy dla tabeli `article`
+--
+ALTER TABLE `article`
+  ADD PRIMARY KEY (`idarticle`);
+
+--
+-- Indeksy dla tabeli `curiosities`
+--
+ALTER TABLE `curiosities`
+  ADD PRIMARY KEY (`idcuriosities`);
+
+--
+-- Indeksy dla tabeli `paragraph`
+--
+ALTER TABLE `paragraph`
+  ADD PRIMARY KEY (`idparagraph`,`article_idarticle`),
+  ADD KEY `fk_paragraph_article1_idx` (`article_idarticle`);
+
+--
+-- Indeksy dla tabeli `question`
+--
+ALTER TABLE `question`
+  ADD PRIMARY KEY (`idquestion`,`quiz_idquiz`),
+  ADD KEY `fk_question_quiz1_idx` (`quiz_idquiz`);
+
+--
+-- Indeksy dla tabeli `quiz`
+--
+ALTER TABLE `quiz`
+  ADD PRIMARY KEY (`idquiz`);
+
+--
+-- Indeksy dla tabeli `statistics`
+--
+ALTER TABLE `statistics`
+  ADD PRIMARY KEY (`idstatistics`,`user_iduser`),
+  ADD KEY `fk_statistics_user1_idx` (`user_iduser`);
+
+--
+-- Indeksy dla tabeli `user`
+--
+ALTER TABLE `user`
+  ADD PRIMARY KEY (`iduser`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT dla tabeli `answers`
+--
+ALTER TABLE `answers`
+  MODIFY `idanswers` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+
+--
+-- AUTO_INCREMENT dla tabeli `anteroom`
+--
+ALTER TABLE `anteroom`
+  MODIFY `idanteroom` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
+-- AUTO_INCREMENT dla tabeli `article`
+--
+ALTER TABLE `article`
+  MODIFY `idarticle` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT dla tabeli `curiosities`
+--
+ALTER TABLE `curiosities`
+  MODIFY `idcuriosities` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+
+--
+-- AUTO_INCREMENT dla tabeli `paragraph`
+--
+ALTER TABLE `paragraph`
+  MODIFY `idparagraph` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+
+--
+-- AUTO_INCREMENT dla tabeli `question`
+--
+ALTER TABLE `question`
+  MODIFY `idquestion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+
+--
+-- AUTO_INCREMENT dla tabeli `quiz`
+--
+ALTER TABLE `quiz`
+  MODIFY `idquiz` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT dla tabeli `statistics`
+--
+ALTER TABLE `statistics`
+  MODIFY `idstatistics` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- AUTO_INCREMENT dla tabeli `user`
+--
+ALTER TABLE `user`
+  MODIFY `iduser` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
+-- Ograniczenia dla zrzutów tabel
+--
+
+--
+-- Ograniczenia dla tabeli `answers`
+--
+ALTER TABLE `answers`
+  ADD CONSTRAINT `fk_answers_question1` FOREIGN KEY (`question_idquestion`) REFERENCES `question` (`idquestion`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Ograniczenia dla tabeli `paragraph`
+--
+ALTER TABLE `paragraph`
+  ADD CONSTRAINT `fk_paragraph_article1` FOREIGN KEY (`article_idarticle`) REFERENCES `article` (`idarticle`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Ograniczenia dla tabeli `question`
+--
+ALTER TABLE `question`
+  ADD CONSTRAINT `fk_question_quiz1` FOREIGN KEY (`quiz_idquiz`) REFERENCES `quiz` (`idquiz`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Ograniczenia dla tabeli `statistics`
+--
+ALTER TABLE `statistics`
+  ADD CONSTRAINT `fk_statistics_user1` FOREIGN KEY (`user_iduser`) REFERENCES `user` (`iduser`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
