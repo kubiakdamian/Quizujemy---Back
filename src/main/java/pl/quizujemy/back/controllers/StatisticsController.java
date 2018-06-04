@@ -23,6 +23,7 @@ public class StatisticsController {
     }
 
     @PostMapping("user/{iduser}/statistics")
+    @CrossOrigin(origins = "*")
     public Statistics createStatistics(@PathVariable (value = "iduser") Long iduser, @Valid @RequestBody Statistics statistics){
         return userRepository.findById(iduser).map(user -> {
             statistics.setUser(user);
@@ -33,6 +34,7 @@ public class StatisticsController {
     }
 
     @PutMapping("/statistics/{idstatistics}")
+    @CrossOrigin(origins = "*")
     public Statistics updateArticle(@PathVariable Long idstatistics, @Valid @RequestBody Statistics statisticsRequest){
         return statisticsRepository.findById(idstatistics).map(statistics -> {
             statistics.setCorrectAnswers(statisticsRequest.getCorrectAnswers());
