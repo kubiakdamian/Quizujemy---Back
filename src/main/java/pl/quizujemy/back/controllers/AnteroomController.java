@@ -26,6 +26,7 @@ public class AnteroomController {
     }
 
     @DeleteMapping("anteroom/delete/{idanteroom}")
+    @CrossOrigin(origins = "*")
     public ResponseEntity<?> deleteAnteroom(@PathVariable Long idanteroom) {
         return anteroomRepository.findById(idanteroom).map(anteroom -> {
             anteroomRepository.delete(anteroom);
