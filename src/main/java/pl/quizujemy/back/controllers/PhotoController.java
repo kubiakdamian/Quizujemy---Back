@@ -17,7 +17,7 @@ import java.util.UUID;
 
 @RestController
 public class PhotoController {
-    private String UPLOAD_DIR = ""; // Path to Uploaded images
+    private String UPLOAD_DIR = "C:\\Users\\Damian\\Desktop\\Quizujemy---Front\\src\\uploadedImg";
 
     @Autowired
     PhotoRepository photoRepository;
